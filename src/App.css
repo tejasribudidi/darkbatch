@@ -1,0 +1,29 @@
+body{
+  background: #FFF7FC;
+}
+.first{
+  margin-top: 50px;
+  color: #00215E;
+  font-family: Monaco;
+}
+.second{
+  background: #7AA2E3;
+}
+.third{
+  color: white;
+  background: #00215E;
+  border-radius: 10px;
+}
+.four{
+  background: rgb(189, 30, 30);
+  border-radius: 10px;
+}
+.five{
+  font-family: Monaco;
+  text-align: left;
+}
+.seven{
+  background-color: #378CE7;
+  color: white;
+  border-radius: 8px;
+}
