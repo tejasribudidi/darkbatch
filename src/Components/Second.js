@@ -45,6 +45,8 @@ export default function Second() {
     <div className='col-md-4'>
       <h2 className='first'>Add Task</h2>
       <br />
+      <div class="card">
+      <div class="card-body">
       <form className='five' onSubmit={handleSubmit}>
         <label><h5>Task</h5></label>
         <br />
@@ -80,6 +82,8 @@ export default function Second() {
         <br />
         <button type='submit' className='seven'>Submit</button>
       </form>
+      </div>
+      </div>
     </div>
   );
 }

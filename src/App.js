@@ -1,8 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import First from './Components/First';
 import Second from './Components/Second';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Edittask from './Components/Edittask';
 
 function App() {
   return (
@@ -14,9 +14,13 @@ function App() {
     <center>
     <div className='row'>
       <BrowserRouter>
-      <First/>
       <div className='col-md-1'></div>
-      <Second/>
+      <First/>
+      <Routes>
+      <Route path="/" element={<Second/>}></Route>
+      
+        <Route path="/edittask/:id" element={<Edittask/>}></Route>
+      </Routes>
       </BrowserRouter>
     </div>
     </center>

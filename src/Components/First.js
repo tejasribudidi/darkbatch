@@ -6,19 +6,18 @@ import axios from 'axios'
 
 
 export default function First() {
-    const [list,setList] = useState([])
+    const [list,setList] = useState([{}])
 
    useEffect(()=>{
       axios.get('http://localhost:4000/api/getTask')
-      .then(res => setList(res.data.list))
+      .then(res => setList(res.data.tas))
    },[])
+   
 
-
+   
  // Delete function
- const handleDelete=(_id)=>{
-       
+ const handleDelete=(_id)=>{   
     // console.log(_id)
-  
   axios.delete('http://localhost:4000/api/deletetask/'+_id)
   .then((response)=>
   {
@@ -26,7 +25,7 @@ export default function First() {
    {
     alert("data deleted");
   
-    window.location.href='/'
+    window.location.href='/list2'
   
    }
    
@@ -39,32 +38,38 @@ export default function First() {
             <h2 className='first'>To-Do-List</h2>
             </center>
             <br/>
-            <table align="center" border={2} height={50} className='table table-bordered'>
+            <table align="center" border={2} height={50} className='table table-bordered' >
                 <thead>
                 <tr>
-                    <th className='second'>Task</th>
-                    <th className='second'>Status</th>
-                    <th className='second'>Deadline</th>
-                    <th className='second'>Actions</th>
+                    <th>S.No</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Deadline</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 {
-                    list.map((e,i)=>{
-                        return(
-                            <>
-                            <tr key={e._id}>
-                                <td>{i+1}</td>
+                list.map((e,i)=> {
+                    return(
+                        <>
+                        <tbody>
+                        <tr>
+                                <td>{i + 1}</td>
+                                <td>{e.task}</td>
                                 <td>{e.status}</td>
                                 <td>{e.deadline}</td>
                                 <td>
-                                <Link to={`/edittask/${e._id}`}><button className="btn btn-primary">Edit</button></Link>
-                                <Link><button className='btn btn-danger' onClick={()=>handleDelete(e._id)} >Delete</button></Link>
+                                    <Link to={`/edittask/${e._id}`}>
+                                        <button className="btn btn-primary">Edit</button>
+                                    </Link>
+                                    <button className='btn btn-danger' onClick={() => handleDelete(e._id)}>Delete</button>
                                 </td>
                             </tr>
-                            </>
-                        )
-                    })
-                }
+                        </tbody>
+                        </>
+                    )
+                })
+            }
             </table>
         </div>
     </>
