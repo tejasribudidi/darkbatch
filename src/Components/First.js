@@ -25,7 +25,7 @@ export default function First() {
    {
     alert("data deleted");
   
-    window.location.href='/list2'
+    window.location.href='/'
   
    }
    

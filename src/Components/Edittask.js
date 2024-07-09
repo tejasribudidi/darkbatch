@@ -44,14 +44,29 @@ export default function Edittask() {
 //updating the form after click update button
   const handleSubmit = (event) => {
     event.preventDefault();
+
     const api = 'http://localhost:4000/api/edit_task/'+edit_taskid
         axios.put(api,data).then((response) => {
             console.log(response.data)
             if(response.status==200){
               alert("Updated successfully.")
-              window.location.href='/list';
-            }          
+              setData({
+                task: "",
+                status: "",
+                deadline: ""
+              });
+
+
+              window.location.href='/';
+
+            }       
+            else
+            {
+              alert('function not working')
+            }   
         });
+
+    // alert('working')
        };
     
 

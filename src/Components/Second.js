@@ -31,6 +31,8 @@ export default function Second() {
             {
                 alert('data inserted');
 
+                window.location.href = '';
+
                 
             }
             else{
